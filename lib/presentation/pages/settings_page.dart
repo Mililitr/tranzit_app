@@ -152,7 +152,7 @@ class _SettingsPageState extends State<SettingsPage> {
             Icons.code,
             color: Theme.of(context).primaryColor,
           ),
-          onTap: () => _openUrl('https://github.com/yourusername/tranzit_app'),
+          onTap: () => _openUrl('https://github.com/Mililitr/tranzit_app'),
         ),
         
         // Политика конфиденциальности
