@@ -12,6 +12,7 @@ import 'package:tranzit_app/presentation/bloc/settings/settings_state.dart';
 import 'package:tranzit_app/presentation/widgets/error_message.dart';
 import 'package:tranzit_app/presentation/widgets/loading_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:go_router/go_router.dart';
 
 /// Страница настроек приложения
 class SettingsPage extends StatefulWidget {
@@ -48,7 +49,16 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         title: const Text('Настройки'),
         elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            // Вместо context.pop() используем навигацию на конкретный маршрут
+            context.go('/groups'); // Предполагается, что '/groups' - это маршрут к списку групп
+          },
+        ),
       ),
+
+
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
           if (state is SettingsLoading) {
